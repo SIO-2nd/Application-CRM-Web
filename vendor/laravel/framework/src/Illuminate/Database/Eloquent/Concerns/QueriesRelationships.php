@@ -2,8 +2,11 @@
 
 namespace Illuminate\Database\Eloquent\Concerns;
 
+use BadMethodCallException;
 use Closure;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\RelationNotFoundException;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Database\Query\Builder as QueryBuilder;
@@ -27,7 +30,7 @@ trait QueriesRelationships
     public function has($relation, $operator = '>=', $count = 1, $boolean = 'and', Closure $callback = null)
     {
         if (is_string($relation)) {
-            if (strpos($relation, '.') !== false) {
+            if (str_contains($relation, '.')) {
                 return $this->hasNested($relation, $operator, $count, $boolean, $callback);
             }
 
@@ -456,6 +459,56 @@ trait QueriesRelationships
     }
 
     /**
+     * Add a "belongs to" relationship where clause to the query.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model  $related
+     * @param  string|null  $relationshipName
+     * @param  string  $boolean
+     * @return $this
+     *
+     * @throws \Illuminate\Database\Eloquent\RelationNotFoundException
+     */
+    public function whereBelongsTo($related, $relationshipName = null, $boolean = 'and')
+    {
+        if ($relationshipName === null) {
+            $relationshipName = Str::camel(class_basename($related));
+        }
+
+        try {
+            $relationship = $this->model->{$relationshipName}();
+        } catch (BadMethodCallException $exception) {
+            throw RelationNotFoundException::make($this->model, $relationshipName);
+        }
+
+        if (! $relationship instanceof BelongsTo) {
+            throw RelationNotFoundException::make($this->model, $relationshipName, BelongsTo::class);
+        }
+
+        $this->where(
+            $relationship->getQualifiedForeignKeyName(),
+            '=',
+            $related->getAttributeValue($relationship->getOwnerKeyName()),
+            $boolean,
+        );
+
+        return $this;
+    }
+
+    /**
+     * Add an "BelongsTo" relationship with an "or where" clause to the query.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model  $related
+     * @param  string|null  $relationshipName
+     * @return $this
+     *
+     * @throws \RuntimeException
+     */
+    public function orWhereBelongsTo($related, $relationshipName = null)
+    {
+        return $this->whereBelongsTo($related, $relationshipName, 'or');
+    }
+
+    /**
      * Add subselect queries to include an aggregate value for a relationship.
      *
      * @param  mixed  $relations
@@ -528,7 +581,7 @@ trait QueriesRelationships
             // Finally, we will make the proper column alias to the query and run this sub-select on
             // the query builder. Then, we will return the builder instance back to the developer
             // for further constraint chaining that needs to take place on the query as needed.
-            $alias = $alias ?? Str::snake(
+            $alias ??= Str::snake(
                 preg_replace('/[^[:alnum:][:space:]_]/u', '', "$name $function $column")
             );
 
