@@ -16,4 +16,6 @@ class Produit extends Model
     protected $fillable = [
         'TypeProd', 'PrixProd', 'NomProd', 'LibProd'
     ];
+
+    protected $primaryKey = 'IdProd';
 }

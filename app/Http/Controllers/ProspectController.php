@@ -14,7 +14,10 @@ class ProspectController extends Controller
      */
     public function index()
     {
-        //
+        $data = Prospect::latest()->paginate(5);
+
+        return view('prospects.index', compact('data'))
+            ->with('i', (request()->input('page', 1) -1) *5);
     }
 
     /**

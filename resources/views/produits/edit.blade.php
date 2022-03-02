@@ -4,39 +4,37 @@
 <br><br>
 
 <center>
-<form action="{{ route('achats.update',$achats->IdAchat) }}" method="POST">
+<form action="{{ route('produits.update',$produit->IdProd) }}" method="POST">
 @csrf
 @method('PUT')
+<h1>Modifier le produit</h1><br>
 <div class="row">
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
-<strong>ID de Client :</strong><br>
-        <select name="idcli">
-        @foreach ($data as $key => $value)
-        <option value="{{ $value->IdCli }}">{{ $value->IdCli }}</option>
-        @endforeach
-        </select>
-</div>
-<br>
-</div>
-<div class="col-xs-12 col-sm-12 col-md-12">
-<div class="form-group">
-<strong>ID de produit :</strong><br>
-        <select name="idprod">
-        @foreach ($datas as $key => $value)
-        <option value="{{ $value->IdProd }}">{{ $value->IdProd }}</option>
-        @endforeach
-        </select>
+<strong>Type :</strong><br>
+<input type="text" name="typeProd" class="form-control" value="{{ $produit->typeProd }}" placeholder="Entrez le type" required>
 </div>
 <br>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
-<strong>Quantité :</strong><br>
-<input type="number" name="montant" class="form-control" value="{{ $achats->Qte }}" placeholder="Entrez la quantité" required>
+<strong>Nom :</strong><br>
+<input type="text" name="nomProd" class="form-control" value="{{ $produit->nomProd }}" placeholder="Entrez le nom du produit" required>
+</div>
+<br>
+<div class="col-xs-12 col-sm-12 col-md-12">
+<div class="form-group">
+<strong>Libellé :</strong><br>
+<input type="text" name="libProd" class="form-control" value="{{ $produit->libProd }}" placeholder="Entrez le libellé du produit" required>
+</div>
+<br>
+<div class="col-xs-12 col-sm-12 col-md-12">
+<div class="form-group">
+<strong>Prix :</strong><br>
+<input type="number" name="prixProd" class="form-control" value="{{ $produit->prixProd }}" placeholder="Entrez le prix du produit" required>
 </div>
 <br><br>
-<a class="btn btn-primary button button2 button_botom" href="{{ route('achats.index') }}"><i class="fas fa-reply"></i> Retour aux achats</a> <button type="submit" class="btn btn-danger button button3 button_bottom"><i class="fas fa-pen"></i> Modifier l'achat</button>
+<a class="btn btn-primary button button2 button_botom" href="{{ route('produits.index') }}"><i class="fas fa-reply"></i> Retour</a> <button type="submit" class="btn btn-danger button button3 button_bottom"><i class="fas fa-pen"></i> Modifier</button>
 </form>
 <br><br>
 </center>

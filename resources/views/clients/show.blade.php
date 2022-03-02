@@ -3,7 +3,7 @@
 
 <br><br>
 <center>
-<h1>Liste de l'achat</h1><br>
+<h1>Informations du client</h1><br>
 <div class="row">
 <div class="col-lg-12 margin-tb">
 <div class="pull-left">
@@ -14,32 +14,56 @@
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
 <strong>ID :</strong>
-{{ $achats->IdAchat }}
+{{ $client->IdCli }}
 </div>
 <br>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
-<strong>ID Client :</strong>
-{{ $achats->IdCli }}
+<strong>Nom :</strong>
+{{ $client->NomCli }}
 </div>
 <br>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
-<strong>ID Produit :</strong>
-{{ $achats->IdProd }}
+<strong>Prénom :</strong>
+{{ $client->PreCli }}
 </div>
 <br>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
-<strong>Quantité :</strong>
-{{ $achats->Qte }}
+<strong>Adresse :</strong>
+{{ $client->AdrCli }}
+</div>
+<br>
+<div class="col-xs-12 col-sm-12 col-md-12">
+<div class="form-group">
+<strong>Code postal :</strong>
+{{ $client->CpCli }}
+</div>
+<br>
+<div class="col-xs-12 col-sm-12 col-md-12">
+<div class="form-group">
+<strong>Ville :</strong>
+{{ $client->VilleCli }}
+</div>
+<br>
+<div class="col-xs-12 col-sm-12 col-md-12">
+<div class="form-group">
+<strong>Mail :</strong>
+{{ $client->MailCli }}
+</div>
+<br>
+<div class="col-xs-12 col-sm-12 col-md-12">
+<div class="form-group">
+<strong>Téléphone :</strong>
+{{ $client->TelCli }}
 </div>
 <br><br>
 <div class="pull-right">
-<a class="btn btn-primary button button2" href="{{ route('achats.index') }}"><i class="fas fa-reply"></i> Retour</a>
+<a class="btn btn-primary button button2" href="{{ route('clients.index') }}"><i class="fas fa-reply"></i> Retour</a>
 </div>
 </center>
 

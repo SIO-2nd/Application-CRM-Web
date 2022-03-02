@@ -7,6 +7,7 @@
 <form action="{{ route('achats.update', $achat->IdAchat) }}" method="POST">
 @csrf
 @method('PUT')
+<h1>Modifier l'achat</h1><br>
 <div class="row">
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -36,7 +37,7 @@
 <input type="number" name="montant" class="form-control" value="{{ $achat->Qte }}" placeholder="Entrez la quantité" required>
 </div>
 <br><br>
-<a class="btn btn-primary button button2 button_botom" href="{{ route('achats.index') }}"><i class="fas fa-reply"></i> Retour aux achats</a> <button type="submit" class="btn btn-danger button button3 button_bottom"><i class="fas fa-pen"></i> Modifier l'achat</button>
+<a class="btn btn-primary button button2 button_botom" href="{{ route('achats.index') }}"><i class="fas fa-reply"></i> Retour</a> <button type="submit" class="btn btn-danger button button3 button_bottom"><i class="fas fa-pen"></i> Modifier</button>
 </form>
 <br><br>
 </center>

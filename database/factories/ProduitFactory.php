@@ -19,8 +19,8 @@ class ProduitFactory extends Factory
         return [
             'TypeProd' => $this->faker->randomElement($array = array ('Numérique','Composant','Console')),
             'PrixProd' => $this->faker->numerify('##'),
-            'NomProd' => $this->faker->randomElement($array = array ('Ordinateur','Câble','Processeur','Carte grapgique','Barette de ram','souris','clavier','Playstation 5','Xbox series X','Nintendo Switch','Alimentation','Disque dur','SSD')),
-            'LibProd' => $this->faker->randomElement($array = array ('Ordinateur','Câble','Processeur','Carte grapgique','Barette de ram','souris','clavier','Playstation 5','Xbox series X','Nintendo Switch','Alimentation','Disque dur','SSD')),
+            'NomProd' => $this->faker->randomElement($array = array ('Ordinateur','Câble','Processeur','Carte graphique','Barette de RAM','Souris','Clavier','Playstation 5','Xbox series X','Nintendo Switch','Alimentation','Disque dur','SSD')),
+            'LibProd' => $this->faker->randomElement($array = array ('Ordinateur','Câble','Processeur','Carte graphique','Barette de RAM','Souris','Clavier','Playstation 5','Xbox series X','Nintendo Switch','Alimentation','Disque dur','SSD')),
         ];
     }
 }

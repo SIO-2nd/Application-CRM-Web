@@ -14,7 +14,10 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $data = Client::latest()->paginate(5);
+
+        return view('clients.index', compact('data'))
+            ->with('i', (request()->input('page', 1) -1) *5);
     }
 
     /**
@@ -24,7 +27,16 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('clients.create');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $data = DB::table('clients')->where('IdCli','like','%'.$search.'%')->paginate(50);
+
+        return view('clients.index', compact('data', 'search'))
+            ->with('i', (request()->input('page', 1) - 1) * 50);
     }
 
     /**
@@ -35,7 +47,21 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'IdCli',
+            'NomCli',
+            'PreCli',
+            'AdrCli',
+            'CpCli',
+            'VilleCli',
+            'MailCli',
+            'TelCli',
+        ]);
+
+        Client::create($request->all());
+
+        return redirect()->route('clients.index')
+                        ->with('success','Client créé avec succès');
     }
 
     /**
@@ -46,7 +72,7 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        //
+        return view('clients.show', compact('client'));
     }
 
     /**
@@ -57,7 +83,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+        return view('clients.edit', compact('client'));
     }
 
     /**
@@ -69,7 +95,22 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        //
+        $request->validate([
+            'IdCli',
+            'NomCli',
+            'PreCli',
+            'AdrCli',
+            'CpCli',
+            'VilleCli',
+            'MailCli',
+            'TelCli',
+        ]);
+
+
+        Client->update($request->all());
+
+        return redirect()->route('clients.index')
+                        ->with('success','Client modifié avec succès');
     }
 
     /**
@@ -80,6 +121,9 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        $client->delete();
+
+        return redirect()->route('clients.index')
+                        ->with('success','Client supprimé avec succès');
     }
 }

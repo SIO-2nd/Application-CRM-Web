@@ -16,4 +16,6 @@ class Client extends Model
     protected $fillable = [
         'NomCli', 'PreCli', 'AdrCli', 'CpCli', 'VilleCli', 'MailCli', 'TelCli'
     ];
+
+    protected $primaryKey = 'IdCli';
 }

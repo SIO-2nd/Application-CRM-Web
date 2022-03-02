@@ -6,6 +6,7 @@
 <center>
 <form action="{{ route('achats.store') }}" method="POST">
 @csrf
+<h1>Créer un nouvel achat</h1><br>
 <div class="row">
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -35,7 +36,7 @@
 <input type="number" name="Qte" class="form-control" placeholder="Entrez la quantité" required>
 </div>
 <br><br>
-<a class="btn btn-primary button button2 button_bottom" href="{{ route('achats.index') }}"><i class="fas fa-reply"></i> Retour aux achats</a> <button type="submit" class="btn btn-danger button button3 button_bottom"><i class="fas fa-plus"></i> Ajouter un nouvel achat</button>
+<a class="btn btn-primary button button2 button_bottom" href="{{ route('achats.index') }}"><i class="fas fa-reply"></i> Retour</a> <button type="submit" class="btn btn-danger button button3 button_bottom"><i class="fas fa-plus"></i> Ajouter</button>
 </form>
 </center>
 

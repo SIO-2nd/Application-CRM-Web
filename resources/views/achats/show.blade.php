@@ -4,7 +4,7 @@
 <br><br>
 <center>
 @csrf
-<h1>Liste de l'achat</h1><br>
+<h1>Informations de l'achat</h1><br>
 <div class="row">
 <div class="col-lg-12 margin-tb">
 <div class="pull-left">

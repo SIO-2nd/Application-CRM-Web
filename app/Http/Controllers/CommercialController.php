@@ -14,7 +14,10 @@ class CommercialController extends Controller
      */
     public function index()
     {
-        //
+        $data = Commercial::latest()->paginate(5);
+
+        return view('commercials.index', compact('data'))
+            ->with('i', (request()->input('page', 1) -1) *5);
     }
 
     /**

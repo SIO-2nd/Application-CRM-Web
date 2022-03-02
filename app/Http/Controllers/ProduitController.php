@@ -14,7 +14,19 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        //
+        $data = Produit::latest()->paginate(5);
+
+        return view('produits.index', compact('data'))
+            ->with('i', (request()->input('page', 1) -1) *5);
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $data = DB::table('produits')->where('IdProd','like','%'.$search.'%')->paginate(50);
+
+        return view('produits.index', compact('data', 'search'))
+            ->with('i', (request()->input('page', 1) - 1) * 50);
     }
 
     /**
@@ -24,7 +36,7 @@ class ProduitController extends Controller
      */
     public function create()
     {
-        //
+        return view('produits.create');
     }
 
     /**
@@ -35,7 +47,18 @@ class ProduitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'IdProd',
+            'typeProd',
+            'prixProd',
+            'nomProd',
+            'libProd',
+        ]);
+
+        Produit::create($request->all());
+
+        return redirect()->route('produits.index')
+                        ->with('success','Produit créé avec succès');
     }
 
     /**
@@ -46,7 +69,7 @@ class ProduitController extends Controller
      */
     public function show(Produit $produit)
     {
-        //
+        return view('produits.show', compact('produit'));
     }
 
     /**
@@ -57,7 +80,7 @@ class ProduitController extends Controller
      */
     public function edit(Produit $produit)
     {
-        //
+        return view('produits.edit', compact('produit'));
     }
 
     /**
@@ -69,7 +92,19 @@ class ProduitController extends Controller
      */
     public function update(Request $request, Produit $produit)
     {
-        //
+        $request->validate([
+            'IdProd',
+            'typeProd',
+            'prixProd',
+            'nomProd',
+            'libProd',
+        ]);
+
+
+        Produit->update($request->all());
+
+        return redirect()->route('produits.index')
+                        ->with('success','Produit modifié avec succès');
     }
 
     /**
@@ -80,6 +115,9 @@ class ProduitController extends Controller
      */
     public function destroy(Produit $produit)
     {
-        //
+        $produit->delete();
+
+        return redirect()->route('produits.index')
+                        ->with('success','Produit supprimé avec succès');
     }
 }
