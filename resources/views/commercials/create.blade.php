@@ -6,36 +6,38 @@
 <center>
 <form action="{{ route('achats.store') }}" method="POST">
 @csrf
+<h1>Ajouter un commercial</h1><br>
 <div class="row">
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
-<strong>ID de Client :</strong><br>
-        <select name="IdCli">
-        @foreach ($data as $key => $value)
-        <option value="{{ $value->IdCli }}">{{ $value->IdCli }}</option>
-        @endforeach
-        </select>
+<strong>Nom :</strong><br>
+<input type="text" name="NomCom" class="form-control" placeholder="Entrez le nom du commercial" required>
 </div>
 <br>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
-<strong>ID de produit :</strong><br>
-        <select name="IdProd">
-        @foreach ($datas as $key => $value)
-        <option value="{{ $value->IdProd }}">{{ $value->IdProd }}</option>
-        @endforeach
-        </select>
+<strong>Prénom :</strong><br>
+<input type="text" name="PreCom" class="form-control" placeholder="Entrez le prénom du commercial" required>
 </div>
 <br>
+</div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
-<strong>Quantité :</strong><br>
-<input type="number" name="montant" class="form-control" placeholder="Entrez la quantité" required>
+<strong>Mail :</strong><br>
+<input type="email" name="MailCom" class="form-control" placeholder="Entrez l'adresse mail du commercial" required>
 </div>
+<br>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12">
+<div class="form-group">
+<strong>Tel :</strong><br>
+<input type="text" name="TelCom" class="form-control" placeholder="Entrez le téléphone du commercial" required>
+</div>
+<br>
 <br><br>
-<a class="btn btn-primary button button2 button_bottom" href="{{ route('achats.index') }}"><i class="fas fa-reply"></i> Retour aux achats</a> <button type="submit" class="btn btn-danger button button3 button_bottom"><i class="fas fa-plus"></i> Ajouter un nouvel achat</button>
+<a class="btn btn-primary button button2 button_bottom" href="{{ route('commercials.index') }}"><i class="fas fa-reply"></i> Retour</a> <button type="submit" class="btn btn-danger button button3 button_bottom"><i class="fas fa-plus"></i> Ajouter</button>
 </form>
 </center>
 

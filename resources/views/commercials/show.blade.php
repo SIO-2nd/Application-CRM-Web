@@ -3,7 +3,7 @@
 
 <br><br>
 <center>
-<h1>Liste de l'achat</h1><br>
+<h1>Informations du commercial</h1><br>
 <div class="row">
 <div class="col-lg-12 margin-tb">
 <div class="pull-left">
@@ -14,32 +14,39 @@
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
 <strong>ID :</strong>
-{{ $achats->IdAchat }}
+{{ $commercial->IdCom }}
 </div>
 <br>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
-<strong>ID Client :</strong>
-{{ $achats->IdCli }}
+<strong>Nom :</strong>
+{{ $commercial->NomCom }}
 </div>
 <br>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
-<strong>ID Produit :</strong>
-{{ $achats->IdProd }}
+<strong>Prénom :</strong>
+{{ $commercial->PreCom }}
 </div>
 <br>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
-<strong>Quantité :</strong>
-{{ $achats->Qte }}
+<strong>Mail :</strong>
+{{ $commercial->MailCom }}
+</div>
+<br>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12">
+<div class="form-group">
+<strong>Téléphone :</strong>
+{{ $commercial->TelCom }}
 </div>
 <br><br>
 <div class="pull-right">
-<a class="btn btn-primary button button2" href="{{ route('achats.index') }}"><i class="fas fa-reply"></i> Retour</a>
+<a class="btn btn-primary button button2" href="{{ route('commercials.index') }}"><i class="fas fa-reply"></i> Retour</a>
 </div>
 </center>
 

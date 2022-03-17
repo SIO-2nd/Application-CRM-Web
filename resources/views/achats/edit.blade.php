@@ -14,8 +14,8 @@
 <div class="form-group">
 <strong>ID de Client :</strong><br>
         <select name="idcli">
-        @foreach ($data as $key => $value)
-        <option value="{{ $value->IdCli }}">{{ $value->IdCli }}</option>
+        @foreach ($client as $key => $value)
+        <option value="{{ $value->IdCli }}">{{ $value->NomCli }} {{ $value->PreCli }}</option>
         @endforeach
         </select>
 </div>
@@ -25,8 +25,8 @@
 <div class="form-group">
 <strong>ID de produit :</strong><br>
         <select name="idprod">
-        @foreach ($datas as $key => $value)
-        <option value="{{ $value->IdProd }}">{{ $value->IdProd }}</option>
+        @foreach ($produit as $key => $value)
+        <option value="{{ $value->IdProd }}">{{ $value->NomProd }}</option>
         @endforeach
         </select>
 </div>

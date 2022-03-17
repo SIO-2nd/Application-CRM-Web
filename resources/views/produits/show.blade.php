@@ -21,28 +21,28 @@
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
 <strong>Type :</strong>
-{{ $produit->typeProd }}
+{{ $produit->TypeProd }}
 </div>
 <br>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
 <strong>Prix :</strong>
-{{ $produit->prixProd }}
+{{ $produit->PrixProd }}
 </div>
 <br>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
 <strong>Nom :</strong>
-{{ $produit->nomProd }}
+{{ $produit->NomProd }}
 </div>
 <br>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
 <strong>Libellé :</strong>
-{{ $produit->libProd }}
+{{ $produit->LibProd }}
 </div>
 <br><br>
 <div class="pull-right">

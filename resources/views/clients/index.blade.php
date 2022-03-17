@@ -164,7 +164,7 @@
 </style>
 
 <div class="topnav" id="myTopnav">
-<a href="{{ route('rendezvous.index') }}">Rendez-Vous</a>
+<a href="{{ route('rendezvous.index') }}">Rendez-vous</a>
         <a href="{{ route('commercials.index') }}">Commerciaux</a>
         <a href="{{ route('prospects.index') }}">Prospects</a>
         <a href="{{ route('clients.index') }}" class="active">Clients</a>
@@ -214,7 +214,7 @@
 <form action="/search-client" method="get">
 <input type="search" id="search" style="border-radius: 4px; margin-right: 6px; width: 30%; background-color: #D1D5E4; padding-top: 3px; padding-bottom: 3px; padding-left: 12px; border: none;" placeholder="Rechercher..." name="search" required>
     <span>
-        <button type="Submit" class="button button2" style="border-radius: 4px; padding-top: 7px; padding-bottom: 7px; padding-left: 12px; padding-right: 12px;"><i class="fas fa-search"></i></button>
+        <button type="Submit" class="button button2" style="border-radius: 4px; padding-top: 7px; padding-bottom: 7px; padding-left: 12px; padding-right: 12px; transition: 0.2s;"><i class="fas fa-search"></i></button>
         @if (isset($search))
             <a href="/clients" class="btn btn-sm btn-default">{{ $search }}<span id="close" style="margin-left: 6px;"><i class="fas fa-times"></i></span></a>
         @endif

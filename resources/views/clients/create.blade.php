@@ -6,7 +6,7 @@
 <center>
 <form action="{{ route('clients.store') }}" method="POST">
 @csrf
-<h1>Crée un nouveau client</h1><br>
+<h1>Ajouter un nouveau client</h1><br>
 <div class="row">
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -42,7 +42,7 @@
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
 <strong>Mail :</strong><br>
-<input type="text" name="mailcli" class="form-control" placeholder="Entrez le mail du client" required>
+<input type="email" name="mailcli" class="form-control" placeholder="Entrez le mail du client" required>
 </div>
 <br>
 <div class="col-xs-12 col-sm-12 col-md-12">

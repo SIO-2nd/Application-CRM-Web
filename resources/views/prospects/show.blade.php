@@ -3,7 +3,7 @@
 
 <br><br>
 <center>
-<h1>Liste du prospect</h1><br>
+<h1>Informations du prospect</h1><br>
 <div class="row">
 <div class="col-lg-12 margin-tb">
 <div class="pull-left">
@@ -13,47 +13,54 @@
 <div class="row">
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
+<strong>ID :</strong>
+{{ $prospect->IdPro }}
+</div>
+<br>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12">
+<div class="form-group">
 <strong>Nom :</strong>
-{{ $prospects->NomPro }}
+{{ $prospect->NomPro }}
 </div>
 <br>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
 <strong>Prénom :</strong>
-{{ $prospects->PrePro }}
+{{ $prospect->PrePro }}
 </div>
 <br>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
 <strong>Adresse :</strong>
-{{ $prospects->AdrPro }}
+{{ $prospect->AdrPro }}
 </div>
 <br>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
 <strong>Code postal :</strong>
-{{ $prospects->CrPro }}
+{{ $prospect->CpPro }}
 </div>
 <br>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
 <strong>Ville :</strong>
-{{ $prospects->VillePro }}
+{{ $prospect->VillePro }}
 </div>
 <br>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
-<strong>Adresse mail :</strong>
-{{ $prospects->MailPro }}
+<strong>Mail :</strong>
+{{ $prospect->MailPro }}
 </div>
 <br>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
 <strong>Téléphone :</strong>
-{{ $prospects->TelPro }}
+{{ $prospect->TelPro }}
 </div>
 <br><br>
 <div class="pull-right">

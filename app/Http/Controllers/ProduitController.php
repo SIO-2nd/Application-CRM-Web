@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Produit;
 use Illuminate\Http\Request;
+use DB;
 
 class ProduitController extends Controller
 {
@@ -20,15 +21,6 @@ class ProduitController extends Controller
             ->with('i', (request()->input('page', 1) -1) *5);
     }
 
-    public function search(Request $request)
-    {
-        $search = $request->get('search');
-        $data = DB::table('produits')->where('IdProd','like','%'.$search.'%')->paginate(50);
-
-        return view('produits.index', compact('data', 'search'))
-            ->with('i', (request()->input('page', 1) - 1) * 50);
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -37,6 +29,15 @@ class ProduitController extends Controller
     public function create()
     {
         return view('produits.create');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $data = DB::table('produits')->where('IdProd','like','%'.$search.'%')->paginate(50);
+
+        return view('produits.index', compact('data', 'search'))
+            ->with('i', (request()->input('page', 1) - 1) * 50);
     }
 
     /**
@@ -49,16 +50,16 @@ class ProduitController extends Controller
     {
         $request->validate([
             'IdProd',
-            'typeProd',
-            'prixProd',
-            'nomProd',
-            'libProd',
+            'TypeProd',
+            'PrixProd',
+            'NomProd',
+            'LibProd',
         ]);
 
         Produit::create($request->all());
 
         return redirect()->route('produits.index')
-                        ->with('success','Produit créé avec succès');
+                        ->with('success','Produit ajouté avec succès');
     }
 
     /**
@@ -94,10 +95,10 @@ class ProduitController extends Controller
     {
         $request->validate([
             'IdProd',
-            'typeProd',
-            'prixProd',
-            'nomProd',
-            'libProd',
+            'TypeProd',
+            'PrixProd',
+            'NomProd',
+            'LibProd',
         ]);
 
 

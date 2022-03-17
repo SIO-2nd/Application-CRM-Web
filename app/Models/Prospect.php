@@ -16,4 +16,6 @@ class Prospect extends Model
     protected $fillable = [
         'NomPro', 'PrePro', 'AdrPro', 'CpPro', 'VillePro', 'MailPro', 'TelPro'
     ];
+
+    protected $primaryKey = 'IdPro';
 }

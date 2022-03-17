@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Commercial;
 use Illuminate\Http\Request;
+use DB;
 
 class CommercialController extends Controller
 {
@@ -27,7 +28,16 @@ class CommercialController extends Controller
      */
     public function create()
     {
-        //
+        return view('commercials.create');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $data = DB::table('commercials')->where('IdCom','like','%'.$search.'%')->paginate(50);
+
+        return view('commercials.index', compact('data', 'search'))
+            ->with('i', (request()->input('page', 1) - 1) * 50);
     }
 
     /**
@@ -38,7 +48,18 @@ class CommercialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'IdCom',
+            'NomCom',
+            'PreCom',
+            'MailCom',
+            'TelCom',
+        ]);
+
+        Commercial::create($request->all());
+
+        return redirect()->route('commercials.index')
+                        ->with('success','Commercial ajouté avec succès');
     }
 
     /**
@@ -49,7 +70,7 @@ class CommercialController extends Controller
      */
     public function show(Commercial $commercial)
     {
-        //
+        return view('commercials.show', compact('commercial'));
     }
 
     /**
@@ -60,7 +81,7 @@ class CommercialController extends Controller
      */
     public function edit(Commercial $commercial)
     {
-        //
+        return view('commercials.edit', compact('commercial'));
     }
 
     /**
@@ -72,7 +93,19 @@ class CommercialController extends Controller
      */
     public function update(Request $request, Commercial $commercial)
     {
-        //
+        $request->validate([
+            'IdCom',
+            'NomCom',
+            'PreCom',
+            'MailCom',
+            'TelCom',
+        ]);
+
+
+        Commercial->update($request->all());
+
+        return redirect()->route('commercials.index')
+                        ->with('success','Commercial modifié avec succès');
     }
 
     /**
@@ -83,6 +116,9 @@ class CommercialController extends Controller
      */
     public function destroy(Commercial $commercial)
     {
-        //
+        $commercial->delete();
+
+        return redirect()->route('commercials.index')
+                        ->with('success','Commercial supprimé avec succès');
     }
 }

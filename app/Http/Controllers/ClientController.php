@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use Illuminate\Http\Request;
+use DB;
 
 class ClientController extends Controller
 {
@@ -61,7 +62,7 @@ class ClientController extends Controller
         Client::create($request->all());
 
         return redirect()->route('clients.index')
-                        ->with('success','Client créé avec succès');
+                        ->with('success','Client ajouté avec succès');
     }
 
     /**

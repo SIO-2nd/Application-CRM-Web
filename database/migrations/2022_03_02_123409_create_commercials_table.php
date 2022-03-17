@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('commercials', function (Blueprint $table) {
-            $table->id('IdCommercials');
-            $table->string('NomCommercials');
-            $table->string('PreCommercials');
-            $table->string('TelCommercials');
-            $table->string('MailCommercials');
+            $table->id('IdCom');
+            $table->string('NomCom');
+            $table->string('PreCom');
+            $table->string('TelCom');
+            $table->string('MailCom');
             $table->timestamps();
         });
     }

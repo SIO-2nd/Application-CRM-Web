@@ -164,7 +164,7 @@
 </style>
 
 <div class="topnav" id="myTopnav">
-<a href="{{ route('rendezvous.index') }}">Rendez-Vous</a>
+<a href="{{ route('rendezvous.index') }}">Rendez-vous</a>
         <a href="{{ route('commercials.index') }}">Commerciaux</a>
         <a href="{{ route('prospects.index') }}">Prospects</a>
         <a href="{{ route('clients.index') }}">Clients</a>
@@ -190,10 +190,10 @@
 @foreach ($data as $key => $value)
 <tr>
 <td>{{ $value->IdProd }}</td>
-<td>{{ $value->typeProd }}</td>
-<td>{{ $value->nomProd }}</td>
-<td>{{ $value->libProd }}</td>
-<td>{{ $value->prixProd }} €</td>
+<td>{{ $value->TypeProd }}</td>
+<td>{{ $value->NomProd }}</td>
+<td>{{ $value->LibProd }}</td>
+<td>{{ $value->PrixProd }} €</td>
 <td>
 <form action="{{ route('produits.destroy',$value->IdProd) }}" method="POST">
 <a class="btn btn-info button button2 button_action" href="{{ route('produits.show', $value->IdProd) }}"><i class="fas fa-shopping-bag"></i></a>
@@ -205,10 +205,10 @@
 </td>
 </tr>
 @endforeach
-<form action="/search-prosuit" method="get">
+<form action="/search-produit" method="get">
 <input type="search" id="search" style="border-radius: 4px; margin-right: 6px; width: 30%; background-color: #D1D5E4; padding-top: 3px; padding-bottom: 3px; padding-left: 12px; border: none;" placeholder="Rechercher..." name="search" required>
     <span>
-        <button type="Submit" class="button button2" style="border-radius: 4px; padding-top: 7px; padding-bottom: 7px; padding-left: 12px; padding-right: 12px;"><i class="fas fa-search"></i></button>
+        <button type="Submit" class="button button2" style="border-radius: 4px; padding-top: 7px; padding-bottom: 7px; padding-left: 12px; padding-right: 12px; transition: 0.2s;"><i class="fas fa-search"></i></button>
         @if (isset($search))
             <a href="/produits" class="btn btn-sm btn-default">{{ $search }}<span id="close" style="margin-left: 6px;"><i class="fas fa-times"></i></span></a>
         @endif

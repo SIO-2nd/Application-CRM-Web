@@ -6,15 +6,15 @@
 <center>
 <form action="{{ route('achats.store') }}" method="POST">
 @csrf
-<h1>Créer un nouvel achat</h1><br>
+<h1>Ajouter un nouvel achat</h1><br>
 <div class="row">
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
-<strong>ID de Client :</strong><br>
+<strong>Client :</strong><br>
         <select name="IdCli">
-        @foreach ($data as $key => $value)
-        <option value="{{ $value->IdCli }}">{{ $value->IdCli }}</option>
+        @foreach ($client as $key => $value)
+        <option value="{{ $value->IdCli }}">{{ $value->NomCli }} {{ $value->PreCli }}</option>
         @endforeach
         </select>
 </div>
@@ -22,10 +22,10 @@
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
-<strong>ID de produit :</strong><br>
+<strong>Produit :</strong><br>
         <select name="IdProd">
-        @foreach ($datas as $key => $value)
-        <option value="{{ $value->IdProd }}">{{ $value->IdProd }}</option>
+        @foreach ($produit as $key => $value)
+        <option value="{{ $value->IdProd }}">{{ $value->NomProd }}</option>
         @endforeach
         </select>
 </div>

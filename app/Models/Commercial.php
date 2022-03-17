@@ -14,6 +14,8 @@ class Commercial extends Model
     }
 
     protected $fillable = [
-        'NomCommercial', 'PreCommercial', 'TelCommercial', 'MailCommercial'
+        'NomCom', 'PreCom', 'TelCom', 'MailCom'
     ];
+
+    protected $primaryKey = 'IdCom';
 }

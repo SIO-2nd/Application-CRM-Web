@@ -50,7 +50,7 @@
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
 <strong>Mail :</strong><br>
-<input type="text" name="mailcli" class="form-control" value="{{ $client->MailCli }}" placeholder="Entrez le mail du client" required>
+<input type="email" name="mailcli" class="form-control" value="{{ $client->MailCli }}" placeholder="Entrez le mail du client" required>
 </div>
 <br>
 <div class="col-xs-12 col-sm-12 col-md-12">

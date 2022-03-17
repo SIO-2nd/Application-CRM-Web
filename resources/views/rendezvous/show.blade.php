@@ -3,7 +3,7 @@
 
 <br><br>
 <center>
-<h1>Liste de l'achat</h1><br>
+<h1>Informations du Rendez-vous</h1><br>
 <div class="row">
 <div class="col-lg-12 margin-tb">
 <div class="pull-left">
@@ -13,33 +13,40 @@
 <div class="row">
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
+<strong>ID :</strong>
+{{ $rendez_vous->IdRdv }}
+</div>
+<br>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12">
+<div class="form-group">
 <strong>Date :</strong>
-{{ $rendezVous->DateRdv }}
+{{ $rendez_vous->DateRdv }}
 </div>
 <br>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
 <strong>ID Client :</strong>
-{{ $rendezVous->IdCli }}
+{{ $rendez_vous->IdCli }}
 </div>
 <br>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
 <strong>ID Prospect :</strong>
-{{ $rendezVous->IdPro }}
+{{ $rendez_vous->IdPro }}
 </div>
 <br>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12">
 <div class="form-group">
 <strong>ID Commercial :</strong>
-{{ $rendezVous->IdCommercial }}
+{{ $rendez_vous->IdCom }}
 </div>
 <br><br>
 <div class="pull-right">
-<a class="btn btn-primary button button2" href="{{ route('achats.index') }}"><i class="fas fa-reply"></i> Retour</a>
+<a class="btn btn-primary button button2" href="{{ route('rendezvous.index') }}"><i class="fas fa-reply"></i> Retour</a>
 </div>
 </center>
 

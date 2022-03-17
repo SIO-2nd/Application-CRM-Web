@@ -164,7 +164,7 @@
 </style>
 
 <div class="topnav" id="myTopnav">
-<a href="{{ route('rendezvous.index') }}">Rendez-Vous</a>
+<a href="{{ route('rendezvous.index') }}">Rendez-vous</a>
         <a href="{{ route('commercials.index') }}" class="active">Commerciaux</a>
         <a href="{{ route('prospects.index') }}">Prospects</a>
         <a href="{{ route('clients.index') }}">Clients</a>
@@ -176,7 +176,7 @@
     <br>
 
 <center>
-    <h1>Liste des prospects</h1><br>
+    <h1>Liste des commerciaux</h1><br>
 <table class="table table-bordered">
 <tr>
 <th>ID</th>
@@ -189,15 +189,15 @@
 
 @foreach ($data as $key => $value)
 <tr>
-<td>{{ $value->IdCommercials }}</td>
-<td>{{ $value->NomCommercials }}</td>
-<td>{{ $value->PreCommercials }}</td>
-<td>{{ $value->MailCommercials }}</td>
-<td>{{ $value->TelCommercials }}</td>
+<td>{{ $value->IdCom }}</td>
+<td>{{ $value->NomCom }}</td>
+<td>{{ $value->PreCom }}</td>
+<td>{{ $value->MailCom }}</td>
+<td>{{ $value->TelCom }}</td>
 <td>
-<form action="{{ route('commercials.destroy',$value->IdCommercials) }}" method="POST">
-<a class="btn btn-info button button2 button_action" href="{{ route('commercials.show', $value->IdCommercials) }}"><i class="fas fa-user-tie"></i></a>
-<a class="btn btn-primary button button3 button_action" href="{{ route('commercials.edit', $value->IdCommercials) }}"><i class="fas fa-pen"></i></a>
+<form action="{{ route('commercials.destroy',$value->IdCom) }}" method="POST">
+<a class="btn btn-info button button2 button_action" href="{{ route('commercials.show', $value->IdCom) }}"><i class="fas fa-user-tie"></i></a>
+<a class="btn btn-primary button button3 button_action" href="{{ route('commercials.edit', $value->IdCom) }}"><i class="fas fa-pen"></i></a>
 @csrf
 @method('DELETE')
 <button type="submit" class="btn btn-danger button button1 button_action"><i class="fas fa-trash"></i></button>
@@ -208,7 +208,7 @@
 <form action="/search-commercial" method="get">
 <input type="search" id="search" style="border-radius: 4px; margin-right: 6px; width: 30%; background-color: #D1D5E4; padding-top: 3px; padding-bottom: 3px; padding-left: 12px; border: none;" placeholder="Rechercher..." name="search" required>
     <span>
-        <button type="Submit" class="button button2" style="border-radius: 4px; padding-top: 7px; padding-bottom: 7px; padding-left: 12px; padding-right: 12px;"><i class="fas fa-search"></i></button>
+        <button type="Submit" class="button button2" style="border-radius: 4px; padding-top: 7px; padding-bottom: 7px; padding-left: 12px; padding-right: 12px; transition: 0.2s;"><i class="fas fa-search"></i></button>
         @if (isset($search))
             <a href="/commercials" class="btn btn-sm btn-default">{{ $search }}<span id="close" style="margin-left: 6px;"><i class="fas fa-times"></i></span></a>
         @endif
@@ -224,7 +224,7 @@
 </center>
 <div class="d-felx justify-content-center">
 {{ $data->links() }}
-<a class="btn btn-primary button button3 button_bottom" href="{{ route('prospects.create') }}"><i class="fas fa-plus"></i> Ajouter un nouveau commercial</a>
+<a class="btn btn-primary button button3 button_bottom" href="{{ route('commercials.create') }}"><i class="fas fa-plus"></i> Ajouter un nouveau commercial</a>
 </div>
 
 <style>

@@ -30,10 +30,10 @@ class AchatController extends Controller
      */
     public function create()
     {
-        $data = Client::all();
-        $datas = Produit::all();
+        $client = Client::all();
+        $produit = Produit::all();
 
-        return view('achats.create', compact('data', 'datas'));
+        return view('achats.create', compact('client', 'produit'));
     }
 
     public function search(Request $request)
@@ -63,7 +63,7 @@ class AchatController extends Controller
         Achat::create($request->all());
 
         return redirect()->route('achats.index')
-                        ->with('success','Achat créé avec succès');
+                        ->with('success','Achat ajouté avec succès');
     }
 
     /**
@@ -74,10 +74,10 @@ class AchatController extends Controller
      */
     public function show(Achat $achat)
     {
-        $data = Client::all();
-        $datas = Produit::all();
+        $client = Client::all();
+        $produit = Produit::all();
 
-        return view('achats.show', compact('achat', 'data', 'datas'));
+        return view('achats.show', compact('achat', 'client', 'produit'));
     }
 
     /**
@@ -88,10 +88,10 @@ class AchatController extends Controller
      */
     public function edit(Achat $achat)
     {
-        $data = Client::all();
-        $datas = Produit::all();
+        $client = Client::all();
+        $produit = Produit::all();
 
-        return view('achats.edit', compact('achat', 'data', 'datas'));
+        return view('achats.edit', compact('achat', 'client', 'produit'));
     }
 
     /**

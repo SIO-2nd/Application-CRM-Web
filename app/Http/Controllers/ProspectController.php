@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Prospect;
 use Illuminate\Http\Request;
+use DB;
 
 class ProspectController extends Controller
 {
@@ -27,7 +28,16 @@ class ProspectController extends Controller
      */
     public function create()
     {
-        //
+        return view('prospects.create');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $data = DB::table('prospects')->where('IdPro','like','%'.$search.'%')->paginate(50);
+
+        return view('prospects.index', compact('data', 'search'))
+            ->with('i', (request()->input('page', 1) - 1) * 50);
     }
 
     /**
@@ -38,7 +48,21 @@ class ProspectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'IdPro',
+            'NomPro',
+            'PrePro',
+            'AdrPro',
+            'CpPro',
+            'VillePro',
+            'MailPro',
+            'TelPro',
+        ]);
+
+        Prospect::create($request->all());
+
+        return redirect()->route('prospects.index')
+                        ->with('success','Prospect ajouté avec succès');
     }
 
     /**
@@ -49,7 +73,7 @@ class ProspectController extends Controller
      */
     public function show(Prospect $prospect)
     {
-        //
+        return view('prospects.show', compact('prospect'));
     }
 
     /**
@@ -60,7 +84,7 @@ class ProspectController extends Controller
      */
     public function edit(Prospect $prospect)
     {
-        //
+        return view('prospects.edit', compact('prospect'));
     }
 
     /**
@@ -72,7 +96,22 @@ class ProspectController extends Controller
      */
     public function update(Request $request, Prospect $prospect)
     {
-        //
+        $request->validate([
+            'IdPro',
+            'NomPro',
+            'PrePro',
+            'AdrPro',
+            'CpPro',
+            'VillePro',
+            'MailPro',
+            'TelPro',
+        ]);
+
+
+        Prospect->update($request->all());
+
+        return redirect()->route('prospects.index')
+                        ->with('success','Prospect modifié avec succès');
     }
 
     /**
@@ -83,6 +122,9 @@ class ProspectController extends Controller
      */
     public function destroy(Prospect $prospect)
     {
-        //
+        $prospect->delete();
+
+        return redirect()->route('prospects.index')
+                        ->with('success','Prospect supprimé avec succès');
     }
 }

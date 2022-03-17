@@ -17,10 +17,10 @@ class CommercialFactory extends Factory
     public function definition()
     {
         return [
-            'NomCommercials' => $this->faker->lastname(),
-            'PreCommercials' => $this->faker->firstname(),
-            'MailCommercials' => $this->faker->unique()->safeEmail(),
-            'TelCommercials' => $this->faker->phoneNumber(),
+            'NomCom' => $this->faker->lastname(),
+            'PreCom' => $this->faker->firstname(),
+            'MailCom' => $this->faker->unique()->safeEmail(),
+            'TelCom' => $this->faker->phoneNumber(),
         ];
     }
 }
