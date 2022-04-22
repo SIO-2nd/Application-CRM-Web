@@ -28,7 +28,8 @@ la modification et la Suppression des clients, des prospects, des rendez-vous et
 
 <h2 id="docs">Documentation développeur</h2>
 
-<p>Le site internet a été développé en langage PHP utilisant le framework Laravel à l'aide du logiciel Visual Studio Code développé par Microsoft.</p>
+<p>Le site internet a été développé en langage PHP utilisant le framework Laravel<br>
+à l'aide du logiciel Visual Studio Code développé par Microsoft.</p>
 <p>Il possède plusieurs fichiers utilisant cette arborescence.</p>
 
 ```
