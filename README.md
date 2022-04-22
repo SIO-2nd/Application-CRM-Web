@@ -7,8 +7,8 @@
 
 <h2 id="presentation">Présentation de l'application</h2>
 
-<p>L'application CRM Web est un site internet en tant qu'interface web permettant l’ajout, la modification et la
-Suppression des clients, des prospects, des rendez-vous et des factures.</p>
+<p>L'application CRM Web est un site internet en tant qu'interface web permettant l’ajout,<br>
+la modification et la Suppression des clients, des prospects, des rendez-vous et des factures.</p>
 
 <p>Voici son interface principale</p>
 
