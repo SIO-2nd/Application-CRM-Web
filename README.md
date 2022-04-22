@@ -1,4 +1,4 @@
-# Application CRM Lourde
+# Application CRM Web
 
 <h3>Sommaire :</h3>
 <li><a href="#presentation">Présentation de l'application</a></li>
