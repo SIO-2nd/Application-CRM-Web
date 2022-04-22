@@ -73,7 +73,7 @@ Suppression des clients, des prospects, des rendez-vous et des factures.</p>
         Exemple::create($request->all());
 
         return redirect()->route('exemple.index')
-                        ->with('success','exemple ajouté avec succès');
+                        ->with('success','Exemple ajouté avec succès');
     }
 ```
 
