@@ -111,7 +111,7 @@ class AchatController extends Controller
         ]);
 
 
-        Achat->update($request->all());
+        $achat->update($request->all());
 
         return redirect()->route('achats.index')
                         ->with('success','Achat modifié avec succès');

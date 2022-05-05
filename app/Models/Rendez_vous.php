@@ -9,9 +9,18 @@ class Rendez_vous extends Model
 {
     use HasFactory;
 
-    public function rendezvous() {
-        return $this->belongsTo(App\Commercial);
-        return $this->belongsTo(App\Prospect);
+    public function Client()
+    {
+        return $this->belongsTo('App\Models\Client');
+    }
+
+    public function Commercial()
+    {
+        return $this->belongsTo('App\Models\Commercial');
+    }
+
+    public function Prospect() {
+        return $this->belongsTo('App\Models\Prospect');        
     }
 
     protected $fillable = [
@@ -19,5 +28,7 @@ class Rendez_vous extends Model
     ];
 
     protected $primaryKey = 'IdRdv';
+
     protected $table = 'rendez_vous';
+
 }

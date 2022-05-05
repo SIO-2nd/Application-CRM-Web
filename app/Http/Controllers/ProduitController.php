@@ -102,7 +102,7 @@ class ProduitController extends Controller
         ]);
 
 
-        Produit->update($request->all());
+        $produit->update($request->all());
 
         return redirect()->route('produits.index')
                         ->with('success','Produit modifié avec succès');

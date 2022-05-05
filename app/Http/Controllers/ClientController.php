@@ -108,7 +108,7 @@ class ClientController extends Controller
         ]);
 
 
-        Client->update($request->all());
+        $client->update($request->all());
 
         return redirect()->route('clients.index')
                         ->with('success','Client modifié avec succès');

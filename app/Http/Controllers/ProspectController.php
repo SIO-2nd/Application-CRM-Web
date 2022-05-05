@@ -108,7 +108,7 @@ class ProspectController extends Controller
         ]);
 
 
-        Prospect->update($request->all());
+        $prospect->update($request->all());
 
         return redirect()->route('prospects.index')
                         ->with('success','Prospect modifié avec succès');

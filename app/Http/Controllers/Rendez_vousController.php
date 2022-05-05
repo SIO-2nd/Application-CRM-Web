@@ -77,7 +77,11 @@ class Rendez_vousController extends Controller
      */
     public function show(Rendez_vous $rendez_vous)
     {
-        return view('rendezvous.show', compact('rendez_vous'));
+        $client = Client::all();
+        $prospect = Prospect::all();
+        $commercial = Commercial::all();
+
+        return view('rendezvous.show', compact('rendez_vous', 'client', 'prospect', 'commercial'));
     }
 
     /**
@@ -113,7 +117,7 @@ class Rendez_vousController extends Controller
         ]);
 
 
-        Rendez_vous->update($request->all());
+        $rendez_vous->update($request->all());
 
         return redirect()->route('rendezvous.index')
                         ->with('success','Rendez-vous modifié avec succès');
@@ -128,7 +132,7 @@ class Rendez_vousController extends Controller
     public function destroy(Rendez_vous $rendez_vous)
     {
         $rendez_vous->delete();
-
+        
         return redirect()->route('rendezvous.index')
                         ->with('success','Rendez-vous supprimé avec succès');
     }
